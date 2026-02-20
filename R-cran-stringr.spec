@@ -3,7 +3,7 @@
 Summary:	Make it easier to work with strings
 Name:		R-cran-%{modulename}
 Version:	0.6.2
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications/Math
 Source0:	ftp://stat.ethz.ch/R-CRAN/src/contrib/%{modulename}_%{fversion}.tar.gz
