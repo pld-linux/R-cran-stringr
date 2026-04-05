@@ -4,23 +4,30 @@
 Summary:	Make it easier to work with strings
 Name:		R-cran-%{modulename}
 Version:	1.6.0
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications/Math
 Source0:	https://cran.r-project.org/src/contrib/%{modulename}_%{fversion}.tar.gz
 # Source0-md5:	e6d638f79f82b1c39fc88e7295ba1c9d
 URL:		https://stringr.tidyverse.org
 BuildRequires:	R >= 4.1.0
+BuildRequires:	R-cran-cli
+BuildRequires:	R-cran-glue >= 1.6.1
+BuildRequires:	R-cran-lifecycle >= 1.0.3
+BuildRequires:	R-cran-magrittr
+BuildRequires:	R-cran-rlang >= 1.0.0
+BuildRequires:	R-cran-stringi >= 1.5.3
+BuildRequires:	R-cran-vctrs >= 0.4.0
 Requires(post,postun):	R >= 4.1.0
 Requires(post,postun):	perl-base
 Requires(post,postun):	textutils
-Requires:	R-cli
-Requires:	R-glue >= 1.6.1
-Requires:	R-lifecycle >= 1.0.3
-Requires:	R-magrittr
-Requires:	R-rlang >= 1.0.0
-Requires:	R-stringi >= 1.5.3
-Requires:	R-vctrs >= 0.4.0
+Requires:	R-cran-cli
+Requires:	R-cran-glue >= 1.6.1
+Requires:	R-cran-lifecycle >= 1.0.3
+Requires:	R-cran-magrittr
+Requires:	R-cran-rlang >= 1.0.0
+Requires:	R-cran-stringi >= 1.5.3
+Requires:	R-cran-vctrs >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
