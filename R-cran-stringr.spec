@@ -1,19 +1,26 @@
 %define		fversion	%(echo %{version} |tr r -)
 %define		modulename	stringr
+%undefine	_debugsource_packages
 Summary:	Make it easier to work with strings
 Name:		R-cran-%{modulename}
-Version:	0.6.2
-Release:	2
+Version:	1.6.0
+Release:	1
 License:	MIT
 Group:		Applications/Math
-Source0:	ftp://stat.ethz.ch/R-CRAN/src/contrib/%{modulename}_%{fversion}.tar.gz
-# Source0-md5:	452628504e0910c1d0b1756370716f87
-URL:		http://cran.fhcrc.org/web/packages/stringr/index.html
-BuildRequires:	R >= 2.8.1
-Requires(post,postun):	R >= 2.8.1
+Source0:	https://cran.r-project.org/src/contrib/%{modulename}_%{fversion}.tar.gz
+# Source0-md5:	e6d638f79f82b1c39fc88e7295ba1c9d
+URL:		https://stringr.tidyverse.org
+BuildRequires:	R >= 4.1.0
+Requires(post,postun):	R >= 4.1.0
 Requires(post,postun):	perl-base
 Requires(post,postun):	textutils
-Requires:	R
+Requires:	R-cli
+Requires:	R-glue >= 1.6.1
+Requires:	R-lifecycle >= 1.0.3
+Requires:	R-magrittr
+Requires:	R-rlang >= 1.0.0
+Requires:	R-stringi >= 1.5.3
+Requires:	R-vctrs >= 0.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -28,7 +35,7 @@ data structures of other functions.
 %setup -q -c
 
 %build
-R CMD build %{modulename}
+R CMD build --no-build-vignettes %{modulename}
 
 %install
 rm -rf $RPM_BUILD_ROOT
